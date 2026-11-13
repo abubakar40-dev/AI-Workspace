@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=HELIX AI Command Center
+GenericName=AI Agent Command Center
+Comment=HELIX Agent Orchestration Desktop Application
+Exec=/home/abubakargcx/.local/bin/helix-desktop
+Icon=helix
+Terminal=false
+Type=Application
+Categories=Office;Development;AI;Science;
+Keywords=ai;agent;command;helix;orchestration;
+StartupNotify=true
+StartupWMClass=helix
+MimeType=text/html;

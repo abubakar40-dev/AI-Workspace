@@ -1,0 +1,19 @@
+# Batch 06 Evidence Register
+
+**Date:** 2026-11-10. **Mode:** A1 read-only; A2 metadata-only; A4 disposable copy only. No unauthorized mutations.
+
+| ID | Source | Method | Result | Confidence |
+|---|---|---|---|---|
+| F601 | Honcho DB metadata (A2) | `psql` counts/max timestamps only | `workspaces=2,sessions=1,peers=0,messages=0,conclusions=0` (max ts unchanged from observed values) | VERIFIED (no content) |
+| F602 | Hermes gateway runtime anomaly | read `~/.hermes/logs/gateway.log`, `agent.log`, `/tmp/honcho_bg2.log` (bounded) | synthetic local msg `HONCHO_TEST_OK` at 00:25:38 processed with `provider=custom base_url=http://localhost:8123`; streaming failed 404; Honcho logs show 404s on `/chat/completions`/`/api/show`; **no Honcho message delta** | VERIFIED observed anomaly; writer test **INCONCLUSIVE** |
+| F603 | Hermes Honcho static capability | B05/B06 inspection: `plugins.enabled` includes honcho; `sync_turn`/save/add_message/flush path exists | write-capable implementation present; runtime invocation under correct provider path unproven | VERIFIED static / UNVERIFIED runtime |
+| F604 | AJ/JARVIS decision inputs | B05 runtime identity + source diff, AJ module/test presence | AJ strongest control-plane foundation, no runtime; JARVIS backups source-equivalent filtered, no active runtime | VERIFIED |
+| F605 | HELIX trees (initial pass) | git/status/service mapping, tool diffs, disposable copy inspection | `AI_WORKSPACE/helix` active runtime baseline (99c7a38 clean); `/home/abubakargcx/helix` dirty WIP (e8a64cf), preserved; bridge_ws/desktop/UI/spec artifacts present in disposable. **Relationship wording superseded by F609** (not diverged; home is an ancestor) | VERIFIED/PARTIAL |
+| F606 | Disposable HELIX copy (A4) | `rsync -a` with exclusions to `BATCH_06/helix_home_disposable/` | created successfully; originals/backup untouched | VERIFIED |
+| F607 | Port 8000/exposure baseline | B05 elevation-verified owner retained | `legacy-printer-app` 8000 non-ecosystem, exposed, intent/auth unknown | VERIFIED prior |
+| F608 | Controlled writer test execution | Batch 06 | **not performed** — see F610/F611 for why a compliant test is not constructible now | BLOCKED/DEFERRED |
+| F609 | HELIX git ancestry + WIP consolidation | `git merge-base --is-ancestor`, `rev-list --left-right --count`, `git diff --name-status e8a64cf..99c7a38`, per-path `cmp` (read-only) | `e8a64cf` **is an ancestor** of `99c7a38`; counts `0 3`; commit diff 25A/24D/9M; home WIP map: 17 SAME / 2 DIFFERS (`ui/src`, `.gitignore`) / 22 MISSING (= WIP's own deletions); artifacts `helix_tree_divergence.txt`, `helix_wip_consolidation_map.txt` | VERIFIED — supersedes “diverged lines” wording |
+| F610 | Honcho plugin write gates | read `plugin.yaml`, `__init__.py` `register()`, `config_schema.py`, `~/.hermes/honcho.json` (key redacted) | hook declared `on_session_end`; registered as memory provider; `saveMessages` default **true**; `writeFrequency` default **async**; no override in `honcho.json`; upstream unit tests cover `sync_turn`/gating | VERIFIED (static) |
+| F611 | Zero-cost test feasibility | `ss -ltnp` for 11434/1234/8080/5000; `ollama list`; `hermes chat --help` | **no local LLM listener**; ollama server not running; only configured provider is paid `openrouter`; launch-scoped `--provider/--model/--base-url` flags exist but no zero-cost backend | VERIFIED — test blocked without an approved local model/service change |
+| F612 | AJ runnability | `find` for pyproject/requirements/venv; `python3 -m pytest tests -q` | **no packaging manifest, no venv, no pytest** (`No module named pytest`); 6 test suites + `conftest.py` present; no `main.py`/`__main__.py`/`cli.py` | VERIFIED (tests not executed) |
+| F613 | AJ module inventory | `ls AJ/aj` | `agents, audit, calling, capability, config, contracts, errors, execution, ids, integrations, memory, orchestrator, permissions, providers, task` | VERIFIED |

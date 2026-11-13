@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+LAUNCHER_PATH="$(readlink -f -- "${BASH_SOURCE[0]}")"
+JARVIS_HOME="$(cd -- "$(dirname -- "$LAUNCHER_PATH")/.." && pwd)"
+ARCHIVE_HOME="${JARVIS_ARCHIVE_HOME:-$HOME/Desktop/JARVIS_Archive}"
+PYTHON=""
+
+for candidate in \
+    "${JARVIS_PYTHON:-}" \
+    "$JARVIS_HOME/venv/bin/python" \
+    "$JARVIS_HOME/.venv/bin/python" \
+    "$ARCHIVE_HOME/venv/bin/python"
+do
+    [[ -x "$candidate" ]] || continue
+    if "$candidate" -c 'import google.genai' >/dev/null 2>&1; then
+        PYTHON="$candidate"
+        break
+    fi
+done
+
+if [[ -z "$PYTHON" ]]; then
+    printf 'Jarvis: Python interpreter not found. Run setup_ubuntu.sh first.\n' >&2
+    exit 1
+fi
+
+# Qt's Wayland platform currently aborts on some GNOME installations when the
+# xsettings schema is incomplete. Prefer the available X11 compatibility
+# backend for JARVIS; preserve an explicitly selected platform.
+if [[ -n "${WAYLAND_DISPLAY:-}" && -n "${DISPLAY:-}" && -z "${QT_QPA_PLATFORM:-}" ]]; then
+    export QT_QPA_PLATFORM=xcb
+fi
+
+cd "$JARVIS_HOME"
+exec "$PYTHON" "$JARVIS_HOME/main.py" "$@"

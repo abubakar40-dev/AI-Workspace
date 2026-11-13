@@ -1,0 +1,12 @@
+# Batch 06 Unresolved Questions
+
+| ID | Question | Why unresolved | Impact | Safe next step | Approval/decision |
+|---|---|---|---|---|---|
+| Q601 | Under correct Hermes provider routing, does the Honcho plugin load and persist message/conclusion records? | B06 observed misrouted `HONCHO_TEST_OK` turn (base_url pointed to Honcho → 404); no valid runtime delta test performed | memory canonical decision confidence | approved isolated metadata-delta test with correct routing, synthetic payload, no paid calls | explicit test approval + safe plan |
+| Q602 | Which AJ source/entrypoint becomes the canonical control-plane runtime, and what is JARVIS’s first implementation scope? | AJ unmapped runtime; JARVIS backups source-equivalent/inactive | implementation blocker | choose AJ runtime scope + separate JARVIS role/source | **USER DECISION REQUIRED** |
+| Q603 | Ratify `AI_WORKSPACE/helix` @ `99c7a38` (`audit/consolidation-2026-11-06`) as the canonical HELIX line, and decide branch naming/disposition of the home tree? | **Tree relationship is now RESOLVED** (agent commit ancestry + WIP consolidation). What remains is a ratification + git-naming decision | HELIX roadmap | decide canonical line + whether to rename branch (A3) and archive home tree (no deletion) | **USER DECISION REQUIRED (ratification only)** |
+| Q607 | Should the two residual home-only edits (`ui/src/`, `.gitignore`) be reviewed/discarded? | Workspace versions are newer but provenance of the home edits is unknown | small content risk | read-only diff review | **DEFERRED — review only** |
+| Q608 | How should a zero-cost Hermes turn be produced for the Honcho writer test (local model server vs one authorized paid call)? | No local LLM listener; only provider is paid `openrouter` | blocks Q601 | choose local model (service change, A3) or approve one minimal paid call | **USER DECISION REQUIRED** |
+| Q604 | Is `legacy-printer-app` (8000) exposure/auth intentional/required? | owner known, non-ecosystem; auth/intent unknown | host security | review service config/firewall/auth intent | user/system admin; A3 for changes |
+| Q605 | Intent/auth for exposed 3389/5432/5434/8765? | binds known, intent/auth unknown | security | review/restrict per need | user/system; A3 for changes |
+| Q606 | Accept Candidate A (AJ raw-first canonical, Honcho adapter/index) as governing memory direction? | recommended but depends on runtime/writer decisions | architecture baseline | confirm after Q601/Q602 | **USER DECISION REQUIRED** |

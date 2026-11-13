@@ -1,0 +1,122 @@
+# HELIX tree divergence evidence — generated 2026-11-10 (read-only)
+# workspace: /run/media/abubakargcx/My Drive/AI_WORKSPACE/helix
+# home:      /home/abubakargcx/helix
+
+## git refs
+audit/consolidation-2026-11-06
+99c7a3834fc5994fce9aae6964104d47fb74bd74
+main
+e8a64cf1269b857a0b86fc9f4899bccad4f47cf0
+
+## ancestry / counts (e8a64cf...99c7a38 => left=home-only, right=workspace-only)
+e8a64cf IS ancestor of 99c7a38
+0	3
+
+## commits unique to workspace
+99c7a38 Point the live diagnostic at the same model the proxy uses
+07a2522 Consume the shared JARVIS voice contract instead of carrying a second one
+c68326b Checkpoint: pre-consolidation working state on an audit branch
+
+## diff name-status e8a64cf..99c7a38
+M	.gitignore
+M	bridge/README.md
+A	bridge/bridge_ws.py
+A	bridge/helix.desktop
+A	bridge/helix_desktop.py
+D	bridge/server.py
+D	deploy/helix-gesture.service
+A	docs/ADD_AN_AGENT.md
+A	docs/AGENT_ARCHITECTURE.md
+A	docs/PACKAGING_PLAN.md
+M	docs/PROGRESS.md
+M	docs/VOICE_AUDIO_DIAGNOSTIC.md
+D	inbox/1791579015_helix-backup-guide.pdf
+D	inbox/1791579657_Screenshot_From_2026-09-26_20-00-45.png
+A	install.sh
+D	tools/audit-geometry.py
+D	tools/check-aec.py
+D	tools/check-app.py
+D	tools/check-gesture.py
+D	tools/check-globe-patch.sh
+M	tools/check-live.py
+D	tools/check-orb.py
+D	tools/check-talkover.py
+D	tools/diagnose-voice.py
+D	tools/gesture.py
+D	tools/helix_app.py
+M	tools/helix_voice.py
+M	tools/live_server.py
+M	tools/live_tts.py
+A	tools/lms_client.py
+D	tools/measure-layout.py
+D	tools/probe-town.py
+M	tools/selfcheck.py
+D	ui/agent-town/index.html
+A	ui/build.js
+D	ui/console/index.html
+D	ui/console/orbScene.js
+D	ui/console/town.js
+A	ui/helix-ui.html
+A	ui/package-lock.json
+A	ui/package.json
+D	ui/shell/index.html
+A	ui/src/index.html
+A	ui/src/js/00_core.js
+A	ui/src/js/05_loop.js
+A	ui/src/js/10_orb.js
+A	ui/src/js/20_geodata.js
+A	ui/src/js/21_globe_tex.js
+A	ui/src/js/22_globe.js
+A	ui/src/js/30_town.js
+A	ui/src/js/40_voice.js
+A	ui/src/js/41_side.js
+A	ui/src/js/90_main.js
+A	ui/src/style.css
+D	ui/voice-core/README.md
+D	ui/voice-core/index.html
+D	ui/world-monitor/index.html
+A	uninstall.sh
+
+## home working-tree status (porcelain)
+ M .gitignore
+ M bridge/README.md
+ D bridge/server.py
+ D deploy/helix-gesture.service
+ M docs/PROGRESS.md
+ M docs/VOICE_AUDIO_DIAGNOSTIC.md
+ D tools/audit-geometry.py
+ D tools/check-aec.py
+ D tools/check-app.py
+ D tools/check-gesture.py
+ D tools/check-globe-patch.sh
+ D tools/check-orb.py
+ D tools/check-talkover.py
+ D tools/diagnose-voice.py
+ D tools/gesture.py
+ D tools/helix_app.py
+ D tools/measure-layout.py
+ D tools/probe-town.py
+ M tools/selfcheck.py
+ D ui/agent-town/index.html
+ D ui/console/index.html
+ D ui/console/orbScene.js
+ D ui/console/town.js
+ D ui/shell/index.html
+ D ui/voice-core/README.md
+ D ui/voice-core/index.html
+ D ui/world-monitor/index.html
+?? bridge/bridge_ws.py
+?? bridge/helix.desktop
+?? bridge/helix_desktop.py
+?? docs/ADD_AN_AGENT.md
+?? docs/AGENT_ARCHITECTURE.md
+?? docs/PACKAGING_PLAN.md
+?? install.sh
+?? tools/lms_client.py
+?? ui/build.js
+?? ui/helix-ui.html
+?? ui/node_modules/
+?? ui/package-lock.json
+?? ui/package.json
+?? ui/src/
+?? uninstall.sh

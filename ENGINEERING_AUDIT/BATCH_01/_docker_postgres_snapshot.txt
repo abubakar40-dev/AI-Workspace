@@ -1,0 +1,53 @@
+=== DOCKER ===
+NAMES                      STATUS                   IMAGE                               PORTS
+thedentallounge-db-1       Up 3 days (healthy)      postgres:17-alpine                  0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+dental-lounge-ui-v2-db-1   Up 3 days (healthy)      postgres:17-alpine                  0.0.0.0:5434->5432/tcp, [::]:5434->5432/tcp
+heuristic_neumann          Exited (1) 4 weeks ago   ff289ac97e14                        
+eloquent_clarke            Exited (1) 4 weeks ago   ff289ac97e14                        
+stirling-pdf               Exited (0) 6 weeks ago   stirlingtools/stirling-pdf:latest   
+=== DOCKER PROCS ===
+2436 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3361 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5434 -container-ip 172.19.0.2 -container-port 5432 -use-listen-fd
+3382 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5434 -container-ip 172.19.0.2 -container-port 5432 -use-listen-fd
+3429 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5432 -container-ip 172.18.0.2 -container-port 5432 -use-listen-fd
+3439 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5432 -container-ip 172.18.0.2 -container-port 5432 -use-listen-fd
+953515 bash -c { echo "=== DOCKER ==="; command -v docker >/dev/null && docker ps -a --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}' 2>&1 | head -40 || echo "docker not available or no access"; echo "=== DOCKER PROCS ==="; pgrep -af docker 2>&1 | head -20 || true; echo "=== POSTGRES ==="; pgrep -af 'postgres|postmaster' 2>&1 | head -40 || true; systemctl --user status 2>&1 | head -5 || true; systemctl status postgresql 2>&1 | head -15 || true; } > "/run/media/abubakargcx/My Drive/AI_WORKSPACE/ENGINEERING_AUDIT/BATCH_01/_docker_postgres_snapshot.txt" 2>&1; echo done
+=== POSTGRES ===
+3268 postgres
+3271 postgres
+3584 postgres: checkpointer 
+3585 postgres: background writer 
+3587 postgres: checkpointer 
+3588 postgres: background writer 
+3590 postgres: walwriter 
+3591 postgres: walwriter 
+3592 postgres: autovacuum launcher 
+3593 postgres: autovacuum launcher 
+3594 postgres: logical replication launcher 
+3595 postgres: logical replication launcher 
+827874 /usr/lib/postgresql/18/bin/postgres -D /var/lib/postgresql/18/main -c config_file=/etc/postgresql/18/main/postgresql.conf
+827875 postgres: 18/main: io worker 0
+827876 postgres: 18/main: io worker 1
+827877 postgres: 18/main: io worker 2
+827878 postgres: 18/main: checkpointer 
+827879 postgres: 18/main: background writer 
+827881 postgres: 18/main: walwriter 
+827882 postgres: 18/main: autovacuum launcher 
+827883 postgres: 18/main: logical replication launcher 
+953515 bash -c { echo "=== DOCKER ==="; command -v docker >/dev/null && docker ps -a --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}' 2>&1 | head -40 || echo "docker not available or no access"; echo "=== DOCKER PROCS ==="; pgrep -af docker 2>&1 | head -20 || true; echo "=== POSTGRES ==="; pgrep -af 'postgres|postmaster' 2>&1 | head -40 || true; systemctl --user status 2>&1 | head -5 || true; systemctl status postgresql 2>&1 | head -15 || true; } > "/run/media/abubakargcx/My Drive/AI_WORKSPACE/ENGINEERING_AUDIT/BATCH_01/_docker_postgres_snapshot.txt" 2>&1; echo done
+● Wick
+    State: running
+    Units: 470 loaded (incl. loaded aliases)
+     Jobs: 0 queued
+   Failed: 0 units
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
+     Active: active (exited) since Mon 2026-11-09 21:49:05 PKT; 3h 58min ago
+ Invocation: 27763f588eb44623b3d2cea9719cfd87
+    Process: 827897 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 827897 (code=exited, status=0/SUCCESS)
+   Mem peak: 1.7M
+        CPU: 11ms
+
+Nov 09 21:49:05 Wick systemd[1]: Starting postgresql.service - PostgreSQL RDBMS...
+Nov 09 21:49:05 Wick systemd[1]: Finished postgresql.service - PostgreSQL RDBMS.

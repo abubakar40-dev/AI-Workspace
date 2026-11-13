@@ -1,0 +1,10 @@
+# Batch 05 Unresolved Questions
+
+| ID | Question | Why unresolved | Impact | Safe next step | Approval |
+|---|---|---|---|---|---|
+| Q501 | Is Hermes Honcho plugin loaded/invoked at runtime and does it persist message records? | static write path exists; Honcho A2 counts remain 0 messages/conclusions; no runtime hook/log proof; no controlled delta test | memory canonicalization blocker | Hermes core hook trace + approved isolated metadata-delta test (synthetic, no personal content) | explicit approval for controlled DB-writing test |
+| Q502 | What is the canonical active AJ runtime/source and intended relation to legacy JARVIS? | AJ has no mapped runtime entrypoint/process; JARVIS gateway inactive/missing path; backups source-equivalent but not active | architecture/implementation blocker | define/select AJ entrypoint+launcher mapping and JARVIS role in approved design | **user decision** |
+| Q503 | Which HELIX repo state is canonical for ongoing work (`AI_WORKSPACE/helix` clean 99c7a38 active runtime source vs `/home/abubakargcx/helix` dirty e8a64cf with untracked WIP)? | both exist; active live server uses workspace path; home tree has preserved refactor/WIP; intent/spec equivalence incomplete | HELIX integration/recovery | spec-to-implementation decision on disposable copy; reconcile with user intent | **user decision** + scoped validation approval |
+| Q504 | Is port 8000 / `legacy-printer-app` exposure intentional and authenticated? | owner/bind verified; auth/config not audited | security | review service config/auth model; confirm intent | user/system admin review |
+| Q505 | Exposure intent/auth for 3389, 5432, 5434, 8765? | binds verified; intent/auth unverified | security | intent confirmation + read-only config/auth review | user/system review; A3 for changes |
+| Q506 | Should canonical memory be AJ raw-first + Honcho adapter (Candidate A) or Honcho canonical (Candidate B)? | comparison prepared but writer/runtime evidence and governance decisions incomplete | core architecture | resolve Q501, define AJ owner contract, approve direction | **user/architecture decision** |

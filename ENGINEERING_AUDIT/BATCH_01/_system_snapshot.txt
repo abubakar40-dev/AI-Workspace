@@ -1,0 +1,29 @@
+=== DATE ===
+2026-11-10T01:47:53+05:00
+=== UNAME ===
+Linux Wick 7.0.0-42-generic #42-Ubuntu SMP PREEMPT_DYNAMIC Thu Oct 15 08:06:44 UTC 2026 x86_64 GNU/Linux
+=== UPTIME ===
+ 01:47:53 up 3 days,  7:59,  1 user,  load average: 2.00, 1.52, 1.62
+=== CPU ===
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz
+Thread(s) per core:                      2
+Core(s) per socket:                      2
+Socket(s):                               1
+CPU(s) scaling MHz:                      69%
+NUMA node0 CPU(s):                       0-3
+=== MEM ===
+               total        used        free      shared  buff/cache   available
+Mem:           6.9Gi       4.3Gi       478Mi       519Mi       2.9Gi       2.6Gi
+Swap:          4.0Gi       2.4Gi       1.6Gi
+=== SWAP ===
+NAME      TYPE SIZE USED PRIO
+/swap.img file   4G 2.4G   -1
+Filename				Type		Size		Used		Priority
+/swap.img                               file		4194300		2538956		-1
+=== DF ===
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       135G  106G   23G  83% /
+/dev/sda2       135G  106G   23G  83% /
+/dev/sda4       100G   35G   66G  35% /run/media/abubakargcx/My Drive

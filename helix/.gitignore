@@ -1,0 +1,20 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Generated: esbuild output from ~/jarvis-old-archive. Regenerate with the command
+# in ui/voice-core/README.md; ~10ms. Not hand-edited, so it does not belong in git.
+ui/voice-core/orbScene.js
+
+# Retry-loop logs (tools/oci-a1-launch.sh)
+logs/
+
+# Local LMS credentials
+.config/helix/lms.env
+
+# User-supplied documents (not source)
+inbox/
+
+# Vite dependency cache (regenerate with npm install)
+ui/node_modules/
+ui/.vite/

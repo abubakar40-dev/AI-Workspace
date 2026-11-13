@@ -1,0 +1,37 @@
+litellm_settings:
+  drop_params: true
+
+model_list:
+
+  # PRIMARY
+  - model_name: jarvis-code
+    litellm_params:
+      model: openrouter/openrouter/free
+      api_key: os.environ/OPENROUTER_API_KEY
+
+  # FALLBACK 1
+  - model_name: jarvis-groq
+    litellm_params:
+      model: groq/openai/gpt-oss-120b
+      drop_params: true
+      api_key: os.environ/GROQ_API_KEY
+
+  # FALLBACK 2
+  - model_name: jarvis-gemini
+    litellm_params:
+      model: gemini/gemini-2.5-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+router_settings:
+  routing_strategy: simple-shuffle
+  num_retries: 1
+  timeout: 120
+  allowed_fails: 2
+  cooldown_time: 60
+
+  fallbacks:
+    - jarvis-code: ["jarvis-groq", "jarvis-gemini"]
+    - jarvis-groq: ["jarvis-gemini"]
+
+general_settings:
+  master_key: jarvis-local-gateway
